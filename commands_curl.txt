@@ -1,0 +1,16 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "call_to_actions",
+  "thread_state" : "existing_thread",
+  "call_to_actions":[
+    {
+      "type":"postback",
+      "title":"Topics to Learn",
+      "payload":"topics_to_learn"
+    },
+    {
+      "type":"postback",
+      "title":"Help",
+      "payload":"help"
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAALZCRTwRe6oBAG8u4lqfd0aJ7TY5RhFochDsA55ie2qvOfNAkduCnecr8RZAT4OF5UQ0qBCyGS4ki4D4HpzqviSuPwr9ZC8YlmdbEP8lqtyX4ENAY9BZBs6CDBSwe05RqZCYK0AXAALQ7ay9AoHKZASCU6IJPZC07VrzYjLyxyJgZDZD"    

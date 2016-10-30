@@ -24,10 +24,12 @@ def verify():
 def webhook():
 
     # endpoint for processing incoming messaging events
-
+    payload = request.get_data()
+    sender, message = messaging_events(payload)
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
-
+    if message == "help":
+        send_text_message("You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
     if data["object"] == "page":
 
         for entry in data["entry"]:
@@ -38,9 +40,7 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    if message_text == "Help":
-                        send_message(sender_id, "Welcome to edunova.io. We help everyone")
-                    send_message(sender_id, "This is how chatbots work sir?")    
+                       
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
