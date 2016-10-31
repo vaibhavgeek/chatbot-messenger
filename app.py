@@ -35,7 +35,7 @@ def webhook():
     except: 
         data = request.get_json()
         sender, message = get_message_from_data(data) 
-        if str(message) == "help"
+        if str(message) == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
              
     return "ok", 200
