@@ -7,7 +7,6 @@ from flask import Flask, request
 from util import *
 import traceback
 import random
-from menu import *
 app = Flask(__name__)
 
 
@@ -30,8 +29,8 @@ def webhook():
         payload = request.get_data()
         sender, message = messaging_events(payload)
         if message == "help":
-            help_menu()
-       
+            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+
         # This is for understnading and demo purposes. It gets json responses and shows on terminal    
         data = request.get_json()
         log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -46,7 +45,7 @@ def webhook():
                         recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                         message_text = messaging_event["message"]["text"]  # the message's text
                         if message_text.lower() == "help": 
-                            help_menu()
+                            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
 
