@@ -32,7 +32,7 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
     if message == "help":
-        send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+        send_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
     if data["object"] == "page":
 
         for entry in data["entry"]:
@@ -79,6 +79,18 @@ def send_message(recipient_id, message_text):
         log(r.status_code)
         log(r.text)
 
+def messaging_events(payload):
+    """Generate tuples of (sender_id, message_text) from the
+    provided payload.
+    """
+    data = json.loads(payload)
+    messaging_events = data["entry"][0]["messaging"]
+    for event in messaging_events:
+        if "message" in event and "text" in event["message"]:
+            return (event["sender"]["id"], event["message"]
+                ["text"].encode('unicode_escape'))
+        elif "postback" in event and "payload" in event["postback"]:
+            return (event["sender"]["id"], event["postback"]["payload"])
 
 def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
