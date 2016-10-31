@@ -7,7 +7,6 @@ from flask import Flask, request
 
 import traceback
 import random
-from constants import *
 
 app = Flask(__name__)
 
