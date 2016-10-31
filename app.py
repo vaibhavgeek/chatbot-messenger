@@ -24,36 +24,20 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
+    try:
     # endpoint for processing incoming messaging events
-    payload = request.get_data()
-    sender, message = messaging_events(payload)
-    if message == "help":
-        send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
-    # This is for understnading and demo purposes. It gets json responses and shows on terminal    
-    data = request.get_json()
-    log(data)  # you may not want to log every incoming message in production, but it's good for testing
-    if data["object"] == "page":
-        for entry in data["entry"]:
-            for messaging_event in entry["messaging"]:
-
-                if messaging_event.get("message"):  # someone sent us a message
-
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
-                    message_text = messaging_event["message"]["text"]  # the message's text
-                    if str(message_text).lower() == "help": 
-                        send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
-                    send_text_message(sender , "Hello World")
-
-                if messaging_event.get("delivery"):  # delivery confirmation
-                    pass
-
-                if messaging_event.get("optin"):  # optin confirmation
-                    pass
-
-                if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    pass
-
+        payload = request.get_data()
+        sender, message = messaging_events(payload)
+        if message == "help":
+            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+        # This is for understnading and demo purposes. It gets json responses and shows on terminal    
+        
+    except: 
+        data = request.get_json()
+        sender, message = get_message_from_data(data) 
+        if message == "help"
+            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+             
     return "ok", 200
 
 def log(message):  # simple wrapper for logging to stdout on heroku
