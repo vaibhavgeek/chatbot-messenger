@@ -1,5 +1,6 @@
 import json
 import requests
+from constants import SEND_MESSAGE_URL, PAT as token
 from random import randint
 import random
 import xml.etree.ElementTree
