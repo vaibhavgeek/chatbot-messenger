@@ -24,20 +24,11 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    try:
-    # endpoint for processing incoming messaging events
-        payload = request.get_data()
-        sender, message = messaging_events(payload)
-        if message == "help":
-            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
-        # This is for understnading and demo purposes. It gets json responses and shows on terminal    
-        
-    except: 
-        data = request.get_json()
-        sender, message = get_message_from_data(data) 
-        if str(message) == "help":
-            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
-             
+    payload = request.get_data()
+    sender, message = messaging_events(payload)
+    if message == "help":
+        send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+    
     return "ok", 200
 
 def log(message):  # simple wrapper for logging to stdout on heroku
