@@ -166,7 +166,7 @@ def get_message_from_data(data):
                         message_text = messaging_event["message"]["text"]  # the message's text
                         return (sender_id , message_text)
                     else:
-                          return 0     
+                          return "help"     
 
 #                    if messaging_event.get("delivery"):  # delivery confirmation
 #                        pass
