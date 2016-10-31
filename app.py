@@ -43,6 +43,8 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
                     if str(message_text).lower() == "help": 
                         send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+                    send_text_message(sender , "Hello World")
+
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
