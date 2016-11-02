@@ -27,8 +27,6 @@ def webhook():
     payload = request.get_data()
     data = request.get_json()
     print data
-    message_t = get_message(data)
-    print message_t
     sender, message = messaging_events(payload)
     if message.lower() == "help":
         send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
