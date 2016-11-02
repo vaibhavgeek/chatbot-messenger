@@ -147,8 +147,8 @@ def get_message(data):
               for messaging_event in entry["messaging"]:
 
                   if messaging_event.get("message"):  # someone sent us a message
-                      sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                      recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
+                     # sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
+                     # recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                       message_text = messaging_event["message"]["text"]  # the message's text
                       return message_text
 #                    send_message(sender_id, "got it, thanks!")
@@ -171,8 +171,6 @@ def messaging_events(payload):
     messaging_events = data["entry"][0]["messaging"]
     for event in messaging_events:
         if "message" in event and "text" in event["message"]:
-            print event["message"]["text"]
             return (event["sender"]["id"], event["message"]["text"])
         elif "postback" in event and "payload" in event["postback"]:
-            print event["postback"]["payload"]
             return (event["sender"]["id"], event["postback"]["payload"])
