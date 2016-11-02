@@ -24,7 +24,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    data = request.json
+    data = request.get_json()
     print data 
     return "ok"
 
