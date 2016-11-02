@@ -25,6 +25,7 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
     payload = request.get_data()
+    print payload
     sender, message = messaging_events(payload)
     if message.lower() == "help":
         send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
