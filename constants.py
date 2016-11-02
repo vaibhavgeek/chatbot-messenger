@@ -1,4 +1,4 @@
 VERIFY_TOKEN = 'edunova.io'
-PAT = 'EAALZCRTwRe6oBAPvZCs3Wdba2TZBvsvsGvUAxuKMr678TwEgP3iWrxhLHYclTu93SQ4FMevVKz5bE3CV5IOpCeZAyq6V7C8YlkuOqnHbpmZCHI2DENhOoL1UAdezdT45jzxARJg7nMSRld9oAGB6OLQr1jZBvezuVZArdZAd3Pk84wZDZD'
+PAT = 'EAALZCRTwRe6oBAJxiWaCaaUcdLxjFDXavyS83ZBs2ANZCW8AJmNWSXaGY4za17sC0yxRTzJN8ZBbd1v5DlGlibNEmC8IG7EZCN6buM0USmUN0BHI5JmGjsjq0CMEaZACfaLbsNAUwbxbtdbl9ZAsGZAospBZBbYLPti68M9EGAiaXWgZDZD'
 SEND_MESSAGE_URL = 'https://graph.facebook.com/v2.6/me/messages'
 THREAD_URL = 'https://graph.facebook.com/v2.6/me/thread_settings'

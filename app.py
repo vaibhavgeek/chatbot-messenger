@@ -25,7 +25,14 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    print data 
+    print get_message(data)
+    
+
+    payload = request.get_data()
+    sender, message = messaging_events(payload)
+    if message.lower() == "help":
+        send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+
     return "ok"
 
 def log(message):  # simple wrapper for logging to stdout on heroku
