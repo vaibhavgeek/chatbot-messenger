@@ -26,7 +26,8 @@ def verify():
 def webhook():
     data = request.get_json()
     if get_message(data):
-        if get_message(data).lower() == "help":
+        message_t , sender = get_message(data)
+        if message_t.lower() == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
  
 
