@@ -40,16 +40,16 @@ def webhook():
             send_replies(
                 sender, "Answer these questions"
                 [
-                    generate_carasol_items(
+                    quick_reply(
                         "Operation on numbers"
                         "ON"),
-                    generate_carasol_items(
+                    quick_reply(
                         "Linear Equations in two varaibles",
                         "LINEAR"),
-                    generate_carasol_items(
+                    quick_reply(
                         "Quadratic Equations",
                         "QUAD"),
-                    generate_carasol_items(
+                    quick_reply(
                         "Basic Trignometry",
                         "BT")])
     except: 
