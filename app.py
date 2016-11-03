@@ -39,7 +39,7 @@ def webhook():
         if message == "topics_to_learn":
             send_text_message(sender , "wtf?")
             send_replies(
-                sender, "Answer these questions"
+                sender, "Answer these questions" ,
                 [
                     quick_reply(
                         "Operation on numbers",
