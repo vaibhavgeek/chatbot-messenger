@@ -106,11 +106,10 @@ def send_carasol_items(recipient, items):
 def quick_reply(title, payload=None, image_url = None):
   if image_url: 
     return {
-        "content_type" : "text" ,
-        "title": title , 
-        "image_url" : image_url,
-        "payload" : payload
-
+        "content_type" : "text",
+        "title": title, 
+        "payload" : payload, 
+        "image_url":image_url
     }
   else: 
     return {
@@ -127,8 +126,7 @@ def send_replies(recipent , text , quick_rep):
               "message": 
                  { 
                  "text" : text,
-                 "quick_replies": quick_repl
-                    
+                 "quick_replies": quick_rep    
                  }    
             
         }),
