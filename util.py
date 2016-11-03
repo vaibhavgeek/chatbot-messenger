@@ -127,7 +127,7 @@ def send_replies(recipent , text , quick_rep):
               "message": 
                  { 
                  "text" : text,
-                 "quick_replies": quick_reply
+                 "quick_replies": quick_rep
                     
                  }    
             
