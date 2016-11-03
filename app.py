@@ -52,6 +52,7 @@ def webhook():
                     quick_reply(
                         "Basic Trignometry",
                         "BT")])
+            send_text_message(sender , "wtf?")
     except: 
         pass        
     return "ok"
