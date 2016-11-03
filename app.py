@@ -36,7 +36,7 @@ def webhook():
         sender, message = messaging_events(payload)
         if message == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
-        elif message == "topics_to_learn":
+        if message == "topics_to_learn":
             send_replies(
                 sender, "Answer these questions"
                 [
