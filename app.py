@@ -35,11 +35,11 @@ def webhook():
         if message == "topics_to_learn":
             send_replies(
                 sender, 
-                "Select the topic you want to learn?",
+                "Select the topic you want to learn? 1.) Rational Numbers <br/> 2.) Linear Equation in One variable /n 3.) Understanding Quadrilaterals",
                 [
                     quick_reply(
                         "1",
-                        "ON"),
+                        "rat"),
                     quick_reply(
                         "2",
                         "LINEAR"),
