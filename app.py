@@ -37,12 +37,25 @@ def webhook():
         if message == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
         if message == "topics_to_learn":
-            send_replies(
-                    sender,"What do you want to learn?" , 
-                        [
-                            quick_reply("Rational Number") , 
-                            quick_reply("Linear Equation")
-                        ])
+            send_carasol_items(
+                sender,
+                [
+                    generate_carasol_items(
+                        "Operation on numbers",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Arithmetic_symbols.svg/2000px-Arithmetic_symbols.svg.png",
+                        "ON"),
+                    generate_carasol_items(
+                        "Linear Equations in two varaibles",
+                        "http://www.mycompasstest.com/wp-content/uploads/2011/01/BBlintwo.png",
+                        "LINEAR"),
+                    generate_carasol_items(
+                        "Quadratic Equations",
+                        "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Quadratic-equation.svg/769px-Quadratic-equation.svg.png",
+                        "QUAD"),
+                    generate_carasol_items(
+                        "Basic Trignometry",
+                        "https://www.mathsisfun.com/images/adjacent-opposite-hypotenuse.gif",
+                        "BT")])
     except: 
         pass        
     return "ok"
