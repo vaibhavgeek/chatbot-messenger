@@ -33,10 +33,9 @@ def webhook():
         if message == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
         if message == "topics_to_learn":
-            send_text_message(sender , "wtf?")
-            a = send_replies(
+            send_replies(
                 sender, 
-                "Answer these questions first?",
+                "Select the topic you want to learn?",
                 [
                     quick_reply(
                         "1",
@@ -65,7 +64,7 @@ def webhook():
                     quick_reply(
                         "more",
                         "BT")])
-            print a
+            
     except: 
         pass        
     return "ok"
