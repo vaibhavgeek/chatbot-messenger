@@ -39,16 +39,31 @@ def webhook():
                 "Answer these questions first?",
                 [
                     quick_reply(
-                        "Operation",
+                        "1",
                         "ON"),
                     quick_reply(
-                        "Linear",
+                        "2",
                         "LINEAR"),
                     quick_reply(
-                        "Quadratic",
+                        "3",
                         "QUAD"),
                     quick_reply(
-                        "Basic",
+                        "4",
+                        "BT"),
+                    quick_reply(
+                        "5",
+                        "ON"),
+                    quick_reply(
+                        "6",
+                        "LINEAR"),
+                    quick_reply(
+                        "7",
+                        "QUAD"),
+                    quick_reply(
+                        "8",
+                        "BT"),
+                    quick_reply(
+                        "more",
                         "BT")])
             print a
     except: 
