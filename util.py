@@ -68,7 +68,6 @@ def send_button_template_message(recipient, text, buttons):
           headers={'Content-type': 'application/json'})
     print r.text
 
-
 def send_image(recipent, item, type="image"):
     r = requests.post(SEND_MESSAGE_URL, params = {'access_token' : token},
             data = json.dumps({
@@ -98,12 +97,43 @@ def send_carasol_items(recipient, items):
                           "template_type": "generic",
                           "elements": items
                       }
-                 }
+                 }    
             }
         }),
         headers={'Content-type': 'application/json'})
     print r.text
 
+def quick_reply(title, payload=None, image_url = None):
+  if image_url: 
+    return {
+        "content_type" : "text" ,
+        "title": title , 
+        "image_url" : image_url,
+        "payload" : payload
+
+    }
+  else: 
+    return {
+        "content_type" : "text" , 
+        "title" : title , 
+        "payload" : payload
+    }  
+
+def send_replies(recipent , text , quick_rep):
+    r = requests.post(SEND_MESSAGE_URL,
+          params={'access_token': token},
+          data=json.dumps({
+              "recipient": {"id": recipient},
+              "message": 
+                 { 
+                 "text" : text,
+                 "quick_replies": quick_reply
+                    
+                 }    
+            
+        }),
+        headers={'Content-type': 'application/json'})
+    print r.text
 
 def generate_carasol_items(text, image_url, payload = None, showbtns = True):
     if showbtns:

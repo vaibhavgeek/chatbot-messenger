@@ -29,7 +29,6 @@ def webhook():
         message_t , sender = get_message(data)
         if message_t.lower() == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
- 
 
     
     try:
@@ -37,6 +36,13 @@ def webhook():
         sender, message = messaging_events(payload)
         if message == "help":
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+        if message == "topics_to_learn":
+            send_replies(
+                    sender,"What do you want to learn?" , 
+                        [
+                            quick_reply("Rational Number") , 
+                            quick_reply("Linear Equation")
+                        ])
     except: 
         pass        
     return "ok"
