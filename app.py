@@ -25,13 +25,11 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    try:
-        if get_message(data):
-            message_t , sender = get_message(data)
-            if message_t.lower() == "help":
-                send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
-    except:
-        pass            
+    if get_message(data):
+        message_t , sender = get_message(data)
+        if message_t.lower() == "help":
+            send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
+
     
     try:
         payload = request.get_data()
