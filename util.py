@@ -103,15 +103,7 @@ def send_carasol_items(recipient, items):
         headers={'Content-type': 'application/json'})
     print r.text
 
-def quick_reply(title, payload=None, image_url = None):
-  if image_url: 
-    return {
-        "content_type" : "text",
-        "title": title, 
-        "payload" : payload, 
-        "image_url":image_url
-    }
-  else: 
+def quick_reply(title, payload=None):
     return {
         "content_type" : "text" , 
         "title" : title , 
