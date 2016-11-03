@@ -38,22 +38,7 @@ def webhook():
             send_text_message(sender , "You can choose topic you would like to learn and practice from the menu on left. For more information you can drop us a message and we will reply back to you shortly. ")
         if message == "topics_to_learn":
             send_text_message(sender , "wtf?")
-            send_replies(
-                sender, 
-                "Answer these questions first?",
-                [
-                    quick_reply(
-                        "Operation on numbers",
-                        "ON"),
-                    quick_reply(
-                        "Linear Equations in two varaibles",
-                        "LINEAR"),
-                    quick_reply(
-                        "Quadratic Equations",
-                        "QUAD"),
-                    quick_reply(
-                        "Basic Trignometry",
-                        "BT")])
+            print quick_reply("Hello World")
     except: 
         pass        
     return "ok"
