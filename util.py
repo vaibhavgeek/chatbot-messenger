@@ -118,15 +118,15 @@ def quick_reply(title, payload=None, image_url = None):
         "payload" : payload
     }  
 
-def send_replies(recipent , text , quick_rep):
+def send_replies(recipent , text , reply):
     r = requests.post(SEND_MESSAGE_URL,
           params={'access_token': token},
           data=json.dumps({
-              "recipient": {"id": recipient},
+              "recipient": {"id": recipent},
               "message": 
                  { 
                  "text" : text,
-                 "quick_replies": quick_rep    
+                 "quick_replies": reply    
                  }    
             
         }),
